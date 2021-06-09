@@ -1,2 +1,5 @@
 /.vs
 /Rynge_App/OUT.csv
+/Release
+/Rynge_App/Debug
+/Rynge_App/Release/

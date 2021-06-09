@@ -1,5 +1,6 @@
 #pragma once
 #include "MyForm2.h"
+#include "Rynge_Kytt.h"
 #include <msclr/marshal_cppstd.h>
 using namespace System::IO;
 
@@ -63,6 +64,8 @@ namespace RyngeApp {
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::Label^ label6;
 	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Label^ label8;
 
 	private: System::ComponentModel::IContainer^ components;
 	protected:
@@ -86,6 +89,7 @@ namespace RyngeApp {
 			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
@@ -107,10 +111,13 @@ namespace RyngeApp {
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// chart1
@@ -122,7 +129,7 @@ namespace RyngeApp {
 			this->chart1->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chart1->Legends->Add(legend1);
-			this->chart1->Location = System::Drawing::Point(162, 170);
+			this->chart1->Location = System::Drawing::Point(162, 235);
 			this->chart1->Name = L"chart1";
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
@@ -139,7 +146,7 @@ namespace RyngeApp {
 			this->chart1->Series->Add(series1);
 			this->chart1->Series->Add(series2);
 			this->chart1->Series->Add(series3);
-			this->chart1->Size = System::Drawing::Size(801, 434);
+			this->chart1->Size = System::Drawing::Size(916, 426);
 			this->chart1->TabIndex = 0;
 			this->chart1->Text = L"chart1";
 			// 
@@ -153,7 +160,7 @@ namespace RyngeApp {
 			this->groupBox1->Controls->Add(this->textBox3);
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Controls->Add(this->label2);
-			this->groupBox1->Location = System::Drawing::Point(268, 26);
+			this->groupBox1->Location = System::Drawing::Point(464, 72);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(429, 129);
 			this->groupBox1->TabIndex = 2;
@@ -251,7 +258,7 @@ namespace RyngeApp {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->справкаToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1074, 28);
+			this->menuStrip1->Size = System::Drawing::Size(1220, 28);
 			this->menuStrip1->TabIndex = 4;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -277,7 +284,7 @@ namespace RyngeApp {
 			this->groupBox2->Controls->Add(this->label7);
 			this->groupBox2->Controls->Add(this->label6);
 			this->groupBox2->Controls->Add(this->label5);
-			this->groupBox2->Location = System::Drawing::Point(772, 44);
+			this->groupBox2->Location = System::Drawing::Point(902, 85);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(200, 111);
 			this->groupBox2->TabIndex = 5;
@@ -338,11 +345,34 @@ namespace RyngeApp {
 			this->label5->TabIndex = 0;
 			this->label5->Text = L"y1(0)=";
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(50, 93);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(381, 94);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
+			this->pictureBox1->TabIndex = 6;
+			this->pictureBox1->TabStop = false;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->ImeMode = System::Windows::Forms::ImeMode::NoControl;
+			this->label8->Location = System::Drawing::Point(129, 57);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(221, 17);
+			this->label8->TabIndex = 7;
+			this->label8->Text = L"Начальная  система  уравнений";
+			this->label8->Click += gcnew System::EventHandler(this, &MyForm::label8_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1074, 607);
+			this->ClientSize = System::Drawing::Size(1220, 652);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->menuStrip1);
 			this->Controls->Add(this->groupBox1);
@@ -357,28 +387,38 @@ namespace RyngeApp {
 			this->menuStrip1->PerformLayout();
 			this->groupBox2->ResumeLayout(false);
 			this->groupBox2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 
-		///////////////////////////////////////////
-		double y1(double y2, double y3)
+		void CheackERR(System::Windows::Forms::KeyPressEventArgs^ e)
 		{
-			return 1 * y2 * y3;
+			String^ TorZ; // Точка или запятая
+
+			TorZ = Globalization::NumberFormatInfo::CurrentInfo->NumberDecimalSeparator;
+
+			bool TZFound = false; // Разделительный знак найден
+			if (Char::IsDigit(e->KeyChar) == true) return;
+			if (e->KeyChar == (char)Keys::Back) return;
+			if (textBox1->Text->IndexOf(TorZ) != -1)
+				TZFound = true;
+			if (TZFound == true) { e->Handled = true; return; }
+
+			if (e->KeyChar.ToString() == TorZ) return;
+			e->Handled = true;
 		}
 
-		double y2(double y1, double y3)
+		void CheackSumbols(System::Windows::Forms::KeyPressEventArgs^ e)
 		{
-			return -1 * y1 * y3;
+			if (!((e->KeyChar >= '0') && (e->KeyChar <= '9') ||
+				(e->KeyChar == ',') || (e->KeyChar == '-') || (e->KeyChar == 127) || (e->KeyChar == 8))) {
+				e->Handled = true;
+			}
 		}
 
-		double y3(double y1, double y2)
-		{
-			return -1 * 0.51 * y1 * y2;
-		}
-
-		////////////////////////////////////////
+	
 #pragma endregion
 
 
@@ -398,130 +438,26 @@ namespace RyngeApp {
 			int Y1_0 = Convert::ToInt64(textBox4->Text);
 			int Y2_0 = Convert::ToInt64(textBox5->Text);
 			int Y3_0 = Convert::ToInt64(textBox6->Text);
-			//Y1[0] = 0; Y2[0] = 1; Y3[0] = 1;
-
-			/*double h;
-			bool A = double::TryParse(textBox1->Text, System::Globalization::NumberStyles::Number,
-				System::Globalization::NumberFormatInfo::CurrentInfo, h);
-			if (A == true) { MessageBox::Show("Дробную и вещественную чать должна разделять запятая "); }
-			else {
-				double h = Convert::ToDouble(textBox3->Text);
-
-			}*/
-				
-
-
-
-			StreamWriter^ sw = gcnew StreamWriter("OUT.csv");
-
-			//ofstream outf("OUT.csv");
-			double n = (b - a) / h;
-			int size;
-			size = (int)n;
-
-			double* X = new double[size + 1];
-			double* K11 = new double[size + 1], * K12 = new double[size + 1], * K13 = new double[size + 1];
-			double* K21 = new double[size + 1], * K22 = new double[size + 1], * K23 = new double[size + 1];
-			double* K31 = new double[size + 1], * K32 = new double[size + 1], * K33 = new double[size + 1];
-			double* K41 = new double[size + 1], * K42 = new double[size + 1], * K43 = new double[size + 1];
-			double* Y1 = new double[size + 1], * Y2 = new double[size + 1], * Y3 = new double[size + 1];
-
-		
-
-			X[0] = a;
-			Y1[0] = Y1_0; Y2[0] =Y2_0; Y3[0] = Y3_0;
-
-
-
-
-			for (int i = 1; i <= size; i++) {
-
-				X[i] = a + i * h;
-
-
-				K11[i] = h * y1(Y2[i - 1], Y3[i - 1]);
-				K12[i] = h * y2(Y1[i - 1], Y3[i - 1]);
-				K13[i] = h * y3(Y1[i - 1], Y2[i - 1]);
-
-				K21[i] = h * y1(Y2[i - 1] + h / 2.0, Y3[i - 1] + K11[i] / 2.0);
-				K22[i] = h * y2(Y1[i - 1] + h / 2.0, Y3[i - 1] + K12[i] / 2.0);
-				K23[i] = h * y3(Y1[i - 1] + h / 2.0, Y2[i - 1] + K13[i] / 2.0);
-
-
-
-
-				K31[i] = h * y1(Y2[i - 1] + h / 2, Y3[i - 1] + K21[i] / 2);
-				K32[i] = h * y2(Y1[i - 1] + h / 2, Y3[i - 1] + K22[i] / 2);
-				K33[i] = h * y3(Y1[i - 1] + h / 2, Y2[i - 1] + K23[i] / 2);
-
-
-
-				K41[i] = h * y1(Y2[i - 1] + h, Y3[i - 1] + K31[i]);
-				K42[i] = h * y2(Y1[i - 1] + h, Y3[i - 1] + K32[i]);
-				K43[i] = h * y3(Y1[i - 1] + h, Y2[i - 1] + K33[i]);
-
-
-
-				Y1[i] = Y1[i - 1] + (K11[i] + 2 * K21[i] + 2 * K31[i] + K41[i]) / 6;
-				Y2[i] = Y2[i - 1] + (K12[i] + 2 * K22[i] + 2 * K32[i] + K42[i]) / 6;
-				Y3[i] = Y3[i - 1] + (K13[i] + 2 * K23[i] + 2 * K33[i] + K43[i]) / 6;
-
-
-			}
-
-			for (int i = 0; i < size; i++)
-			{
-				sw->Write("{1};", i, X[i]);
-				sw->Write("{1};", i, Y1[i]);
-				sw->Write("{1};", i, Y2[i]);
-				sw->Write("{1};\n", i, Y3[i]);
-
-				
-
-			}
-
 			
-			sw->Close();
 
-			for (int i = 0; i < size; i++)
-			{
-				chart1->Series["Y1"]->Points->AddXY(X[i], Y1[i]);
-				chart1->Series["Y2"]->Points->AddXY(X[i], Y2[i]);
-				chart1->Series["Y3"]->Points->AddXY(X[i], Y3[i]);
-				
-			}
+			InitialVal init;
+
+			init.y1= Y1_0;
+			init.y2= Y2_0;
+			init.y3= Y3_0;
 
 
+			OutputValues outY;
 
-			delete[]K11;
-			delete[]K12;
-			delete[]K13;
+			outY = Ode45(a, b, h, init);
 
-			delete[]K21;
-			delete[]K22;
-			delete[]K23;
+			WriteFile("OUT.csv", outY);
+			Draw(chart1, outY);
 
-			delete[]K31;
-			delete[]K32;
-			delete[]K33;
-
-			delete[]K41;
-			delete[]K42;
-			delete[]K43;
-
-		
-
-			delete[]Y1;
-			delete[]Y2;
-			delete[]Y3;
-
-
-
-
-
-
-
-
+			delete[]outY.X;
+			delete[]outY.Y1;
+			delete[]outY.Y2;
+			delete[]outY.Y3;
 
 		}
 
@@ -542,50 +478,14 @@ namespace RyngeApp {
 
 
      private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-		 String^ TorZ; // Точка или запятая
-
-		 TorZ = Globalization::NumberFormatInfo::CurrentInfo->NumberDecimalSeparator;
-
-			   bool TZFound = false; // Разделительный знак найден
-			   if (Char::IsDigit(e->KeyChar) == true) return;
-			   if (e->KeyChar == (char)Keys::Back) return;
-			   if (textBox1->Text->IndexOf(TorZ) != -1)
-				   TZFound = true;
-			   if (TZFound == true) { e->Handled = true; return; }
-
-			   if (e->KeyChar.ToString() == TorZ) return;
-			   e->Handled = true;
+		 CheackERR(e);
 		   }
 
 			private: System::Void textBox2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-				String^ TorZ; // Точка или запятая
-
-				TorZ = Globalization::NumberFormatInfo::CurrentInfo->NumberDecimalSeparator;
-
-				bool TZFound = false; // Разделительный знак найден
-				if (Char::IsDigit(e->KeyChar) == true) return;
-				if (e->KeyChar == (char)Keys::Back) return;
-				if (textBox2->Text->IndexOf(TorZ) != -1)
-					TZFound = true;
-				if (TZFound == true) { e->Handled = true; return; }
-
-				if (e->KeyChar.ToString() == TorZ) return;
-				e->Handled = true;
+				CheackERR(e);
 			}
 				   private: System::Void textBox3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-					   String^ TorZ; // Точка или запятая
-
-					   TorZ = Globalization::NumberFormatInfo::CurrentInfo->NumberDecimalSeparator;
-
-					   bool TZFound = false; // Разделительный знак найден
-					   if (Char::IsDigit(e->KeyChar) == true) return;
-					   if (e->KeyChar == (char)Keys::Back) return;
-					   if (textBox3->Text->IndexOf(TorZ) != -1)
-						   TZFound = true;
-					   if (TZFound == true) { e->Handled = true; return; }
-
-					   if (e->KeyChar.ToString() == TorZ) return;
-					   e->Handled = true;
+					   CheackERR(e);
 				   }
 
 
@@ -595,41 +495,26 @@ private: System::Void textBox3_TextChanged(System::Object^ sender, System::Event
 }
 
 private: System::Void textBox3_KeyPress_1(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (!((e->KeyChar >= '0') && (e->KeyChar <= '9') ||
-		(e->KeyChar == ',') || (e->KeyChar == '-') || (e->KeyChar == 127) || (e->KeyChar == 8))) {
-		e->Handled = true;
-	}
+	CheackSumbols(e);
+	
 }
 private: System::Void textBox2_KeyPress_1(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (!((e->KeyChar >= '0') && (e->KeyChar <= '9') ||
-		(e->KeyChar == ',') || (e->KeyChar == '-') || (e->KeyChar == 127) || (e->KeyChar == 8))) {
-		e->Handled = true;
-	}
+	CheackSumbols(e);
 }
 private: System::Void textBox1_KeyPress_1(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (!((e->KeyChar >= '0') && (e->KeyChar <= '9') ||
-		(e->KeyChar == ',') || (e->KeyChar == '-') || (e->KeyChar == 127) || (e->KeyChar == 8))) {
-		e->Handled = true;
-	}
+	CheackSumbols(e);
 }
 	private: System::Void textBox4_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 
-		if (!((e->KeyChar >= '0') && (e->KeyChar <= '9') ||
-			(e->KeyChar == ',') || (e->KeyChar == '-') || (e->KeyChar == 127) || (e->KeyChar == 8))) {
-			e->Handled = true;
-	}
+		CheackSumbols(e);
 }
 private: System::Void textBox5_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (!((e->KeyChar >= '0') && (e->KeyChar <= '9') ||
-		(e->KeyChar == ',') || (e->KeyChar == '-') || (e->KeyChar == 127) || (e->KeyChar == 8))) {
-		e->Handled = true;
-	}
+	CheackSumbols(e);
 }
 private: System::Void textBox6_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-	if (!((e->KeyChar >= '0') && (e->KeyChar <= '9') ||
-		(e->KeyChar == ',') || (e->KeyChar == '-') || (e->KeyChar == 127) || (e->KeyChar == 8))) {
-		e->Handled = true;
-	}
+	CheackSumbols(e);
+}
+private: System::Void label8_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
@@ -637,5 +522,3 @@ private: System::Void textBox6_KeyPress(System::Object^ sender, System::Windows:
 
 
 
-//System::String^ str = textBox3->Text;
-//std::string converted_xyz = msclr::interop::marshal_as< std::string >(str);
